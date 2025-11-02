@@ -1,15 +1,15 @@
-const express  = require("express")
+const express = require("express");
 const cors = require("cors");
-const { generateStory } = require("./src/controllers/storyGenerateController");
 
 const app = express();
 
 //middleware
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
 //routes
-app.use("/api/story", generateStory);
+const storyRoutes = require("./src/routes/storyRouter"); 
+app.use("/api/story", storyRoutes);
 
 //errorHandlers
 
